@@ -1,6 +1,8 @@
-const express   = require("express");
-const router    = express.Router();
-const db        = require('../models'); //para acessar o banco de dados
+const   express     = require("express"),
+        router      = express.Router();
+const   db          = require('../models'); //para acessar o banco de dados
+
+
 
 router.get('/', function(req, res){ //na verdade a rota é: /api/todos/
     db.Todo.find() //achar todos os Todos no banco de dados
@@ -13,7 +15,13 @@ router.get('/', function(req, res){ //na verdade a rota é: /api/todos/
 });
 
 router.post('/', function(req,res){
-    res.send("hello from post")
+    db.Todo.create(req.body)
+    .then(function(newTodo){
+        res.status(201).json(newTodo);
+    })
+    .catche(function(err){
+        res.send(err);
+    })
 })
 
 module.exports = router;
