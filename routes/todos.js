@@ -1,13 +1,13 @@
 const   express     = require("express"),
         router      = express.Router();
 const   db          = require('../models'); //para acessar o banco de dados
-const   helpers     = require('../helpers/todos')
+const   helpers     = require('../helpers/todos');
 
 
 
 router.route('/')              //Equivale à:
     .get(helpers.getTodos)     // router.get('/',);
-    .put(helpers.createTodo)   // router.post('/',);
+    .post(helpers.createTodo)   // router.post('/',);
 
 
 // router.get('/:todoId',)

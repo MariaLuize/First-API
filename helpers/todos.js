@@ -5,7 +5,7 @@ exports.getTodos =  function(req, res){ //na verdade a rota é: /api/todos/
     .then(function(todos){// após achar todos, usa-se promise coom .then
         res.json(todos);
     })
-    .catch(function(req,res){ // caso haja erro, usa-se .catch para mostrar o erro
+    .catch(function(err){ // caso haja erro, usa-se .catch para mostrar o erro
         res.send(err)
     })
 };
@@ -15,7 +15,7 @@ exports.createTodo =  function(req,res){
     .then(function(newTodo){
         res.status(201).json(newTodo);
     })
-    .catche(function(err){
+    .catch(function(err){
         res.send(err);
     })
 };

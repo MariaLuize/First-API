@@ -21,5 +21,5 @@ app.use('/api/todos', todoRoutes); //prefixo para todas as rotas: /api/todos
 
 
 app.listen(port, ip, function(){
-    console.log("My API foi inicializada...")
+    console.log("My API foi inicializada...");
 });
